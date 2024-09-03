@@ -1,11 +1,12 @@
-import "./App.css";
-import Contact from "./pages/contact/Contact";
+
+import Facilities from './pages/facilities/Facilities'
+import './App.css'
 
 function App() {
   return (
     <>
       <div>
-        <Contact />
+        <Facilities />
       </div>
     </>
   );
