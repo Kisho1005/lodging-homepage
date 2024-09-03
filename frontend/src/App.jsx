@@ -1,12 +1,12 @@
 
-import Facilities from './pages/facilities/Facilities'
+import Home from './pages/home/Home'
 import './App.css'
 
 function App() {
   return (
     <>
-      <div>
-        <Facilities />
+      <div> 
+        <Home />
       </div>
     </>
   );
