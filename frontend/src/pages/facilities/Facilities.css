@@ -1,0 +1,36 @@
+/* 全体のコンテナを中央に配置し、スタイルを整えます */
+.equipment-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* タイトルを大きくして目立たせます */
+  .equipment-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* 設備のリストを横に並べて見やすくします */
+  .equipment-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  /* 各設備のアイテムをカード状にスタイリング */
+  .equipment-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 1rem;
+    width: 300
+  
+  
