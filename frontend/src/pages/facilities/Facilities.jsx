@@ -12,13 +12,13 @@ import songImage from '../../assets/facilities_image/song.jpg';
 const equipmentData = [
   {
     id: 1,
-    name: "BBQ",
+    name: "バーベキュー",
     description: "BBQグリルを完備!、使い方も簡単!",
     image: BBQImage,
   },
   {
     id: 2,
-    name: "darts",
+    name: "ダーツ",
     description: "みんな大好きダーツ台を設置！、無料で様々げーkをプレイできます！",
     image: dartsImage,
   },
@@ -28,7 +28,7 @@ const equipmentData = [
     description: "防音対策ばっちりな部屋で、心行くまでお楽しみ下さい！",
     image: songImage,
   },
-  // さらに設備を追加できます
+
 ];
 
 const Facilities = () => {
@@ -44,9 +44,15 @@ const Facilities = () => {
           </div>
         ))}
       </div>
+      <h1 className="equipment-title2">※ご注意</h1>
+        <p>機械の故障等が起こり、一時利用を中止させていただく場合がございます。あらかじめご了承ください。</p>
     </div>
   );
 };
+
+
+
+
 
 export default Facilities;
 
