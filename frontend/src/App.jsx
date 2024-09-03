@@ -1,15 +1,21 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Header from "./components/header/Header";
+import Facilities from "./pages/facilities/Facilities";
+import Contact from "./pages/contact/Contact";
+import "./App.css";
 
-import Home from './pages/home/Home'
-import './App.css'
 
-function App() {
+const App = () => {
   return (
-    <>
-      <div> 
-        <Home />
-      </div>
-    </>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/facilities" element={<Facilities />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
