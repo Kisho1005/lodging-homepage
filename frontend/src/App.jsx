@@ -1,15 +1,20 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Header from "./components/header/Header";
+import Facilities from "./pages/facilities/Facilities";
+import Contact from "./pages/contact/Contact";
+import "./App.css";
 
-import Facilities from './pages/facilities/Facilities'
-import './App.css'
-
-function App() {
+const App = () => {
   return (
-    <>
-      <div>
-        <Facilities />
-      </div>
-    </>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/facilities" element={<Facilities />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
