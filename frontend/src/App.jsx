@@ -5,18 +5,19 @@ import Contact from "./pages/contact/Contact";
 import Home from "./pages/home/Home";
 import "./App.css";
 
-
 function App() {
   return (
-    // <BrowserRouter>
-    //   <Header />
-    //   <Routes>
-    //     <Route path="/Home" element={<Home />} />
-    //     <Route path="/facilities" element={<Facilities />} />
-    //     <Route path="/contact" element={<Contact />} />
-    //   </Routes>
-    // </BrowserRouter>
-    <Home/>
+    <>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/Home" element={<Home />} />
+          <Route path="/facilities" element={<Facilities />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </BrowserRouter>
+      <Home />
+    </>
   );
 }
 
