@@ -1,102 +1,332 @@
-/* 全体のコンテナ */
+/* クラシックで格調高いデザインのスタイル */
+
+/* 全体のフォントと背景色 */
+body {
+  font-family: 'Georgia', serif;
+  background-color: #18191a;
+  color: #e0d8c8;
+  margin: 0;
+  padding: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.header {
+  position: relative;
+  background-image: url('../../assets/facilities_image/image_3.gif');
+  background-size: cover;
+  background-position: center;
+  height: 500px; /* 適宜調整 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* ヘッダーの上部と下部をフェードアウト */
+
+
+.header-title {
+  font-family: 'Times New Roman', serif;
+  font-size: 50px;
+  font-weight: bold;
+  color: rgba(255, 225, 52, 0.6);
+  text-shadow: 1px 2px 3px #808080;
+  opacity: 0; /* 初期状態では透明 */
+  animation: fadeInText 2s ease-out forwards;
+}
+
+.header-subtitle {
+  font-size: 25px;
+  font-weight: 800;
+  color: #181616;
+  text-align: center;
+  margin-top: 190px;
+}
+
+
+@keyframes fadeInText {
+  0% {
+    transform: translateY(-20px); /* 初期位置：上に隠れている */
+    opacity: 0; /* 初期状態は透明 */
+  }
+  100% {
+    transform: translateY(0); /* 元の位置に戻す */
+    opacity: 1; /* 最後は完全に表示 */
+  }
+}
+
+
+/* セクション共通 */
+.section-title {
+  font-size: 28px;
+  font-family: 'Garamond', serif;
+  text-align: center;
+  color: #d4af37;
+  margin-bottom: 20px;
+  
+  padding-bottom: 10px;
+}
+
+.header-logo {
+  position: absolute;
+  top: 47%; /* 上下中央揃え */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%; /* 必要に応じて調整 */
+  max-width: 700px;
+  height: auto;
+  mix-blend-mode: multiply; /* 透過背景を適用 */
+}
+
+
+
+
+/* 特徴セクション */
+.features {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 40px;
+  overflow-x: auto;  /* 横スクロール可能にする */
+  gap: 20px; /* アイテム間の間隔を調整 */
+}
+
+/* 特徴セクションのアイテム */
+.feature-item {
+  padding: 30px;
+  background-image: url('../../assets/facilities_image/song.jpg'); /* 新しい画像に変更 */
+  background-size: cover; /* 画像を完全にカバーする */
+  background-position: center; /* 画像の中心を表示 */
+  
+
+  width: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  overflow: hidden;
+}
+
+.feature-item2 {
+  padding: 30px;
+  background-image: url('../../assets/facilities_image/2.gif'); /* 新しい画像に変更 */
+  background-size: cover;
+  background-position: center;
+  
+ 
+  width: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  overflow: hidden;
+}
+
+.feature-item3 {
+  padding: 30px;
+  background-image: url('../../assets/facilities_image/4.gif'); /* 新しい画像に変更 */
+  background-size: cover;
+  background-position: center;
+  
+  
+  width: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  overflow: hidden;
+}
+
+
+
+.features {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.feature-item {
+  flex: 1;
+  padding: 20px;
+  opacity: 0.5;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.feature-item.active {
+  opacity: 1;
+}
+
+.features-section {
+  margin-top: 50px;
+}
+
+
+
+
+/* アイコン追加の準備 */
+.feature-item i {
+  font-size: 50px;
+  margin-bottom: 15px;
+  color: #f5deb3; /* アイコンの色 */
+}
+
+
+
+/* アクセスセクション */
+.access-section {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.map {
+  width: 100%;
+  height: 300px;
+  border: 4px solid #c8a97e;
+  border-radius: 10px;
+}
+
+
+.news-section {
+  padding: 20px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.news-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.news-list {
+  list-style: none;
+  padding: 0;
+}
+
+.news-list li {
+  margin: 5px 0;
+}
+
+.news-list a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  display: inline-block;            
+  transition: opacity 0.3s;
+}
+
+.news-list a:hover {
+  opacity: 0.7;
+}
+
+
+
+.footer {
+  background: #2c2c2c;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.footer-links li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.footer-links a:hover {
+  opacity: 0.7;
+}
+
+
+/* ローディングスクリーン */
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1a1a1a;
+  color: #e0d8c8;
+  font-size: 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+/* ローディングアニメーション */
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-top: 5px solid #c8a97e;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+
+
+/* ロード中のテキスト */
+.loading-text {
+  font-size: 18px;
+  color: #e0d8c8;
+  font-weight: bold;
+}
+
+/* スピンアニメーション */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
 .home-container {
-    width: 100%;  /* 横幅をウィンドウサイズに合わせる */
-    max-width: 100%;  /* 横幅の最大値をウィンドウサイズに制限 */
-    margin: 0 auto;  /* コンテンツを中央寄せ */
-    padding: 2rem;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* オープニングセクション */
-  .opening-section {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
-  .opening-image {
-    width: 100%;  /* 横幅をウィンドウサイズに合わせる */
-    height: 50vh;  /* ビューポートの高さに対して50%の高さ */
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .opening-title {
-    font-size: 2.5rem;
-    color: #333;
-    margin-top: 1rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  /* 各セクションのスタイル */
-  .section-title {
-    font-size: 2rem;
-    color: #444;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-  
-  .news-section, .introduction-section, .access-section {
-    margin-bottom: 2rem;
-    padding: 1rem;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
-  }
-  
-  /* マッププレースホルダー */
-  .map-placeholder, iframe {
-    width: 100%;  /* 横幅をウィンドウサイズに合わせる */
-    height: 40vh;  /* ビューポートの高さに対して40%の高さ */
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #666;
-    font-size: 1.2rem;
-  }
-  
-  /* メディアクエリを使ってモバイル対応 */
-  @media (max-width: 768px) {
-    .home-container {
-      padding: 1rem;
-    }
-  
-    .opening-title {
-      font-size: 2rem;
-    }
-  
-    .section-title {
-      font-size: 1.5rem;
-    }
-  }
+  opacity: 0;
+  animation: fadeInContainer 1s ease forwards;
+}
 
+@keyframes fadeInContainer {
+  to {
+    opacity: 1;
+  }
+}
 
-  .news-item {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .news-item:last-child {
-    border-bottom: none;
-  }
-  
-  .news-link {
-    text-decoration: none;
-    color: #444;
-    transition: color 0.3s ease;
-  }
-  
-  .news-link:hover {
-    color: #007BFF;
-  }
-  
-  .news-link p {
-    margin: 0;
-    font-size: 1rem;
-  }
-  
-  
+.img-frame {
+  display: flex;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+
+.img-01,
+.img-02,
+.img-03 {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease-in-out;
+}
+
+.img-01 {
+  background-image: url('../../assets/facilities_image/song.jpg');
+}
+
+.img-02 {
+  background-image: url('../../assets/facilities_image/2.gif');
+}
+
+.img-03 {
+  background-image: url('../../assets/facilities_image/4.gif');
+}
