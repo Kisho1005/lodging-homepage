@@ -1,0 +1,209 @@
+/* モダンセクションスタイル */
+.features-modern-section {
+  padding: 8rem 5%;
+  background: linear-gradient(180deg, #f5f5f5 0%, #ffffff 100%);
+  position: relative;
+}
+
+.section-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.section-label {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #d4af37;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1.5rem;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 50px;
+}
+
+.section-title-modern {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #1a1a2e;
+  margin-bottom: 1rem;
+}
+
+.section-description {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #666666;
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+}
+
+.features-grid-modern {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+}
+
+.feature-card-modern {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card-modern:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.feature-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+}
+
+.feature-image-modern {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card-modern:hover .feature-image-modern {
+  transform: scale(1.1);
+}
+
+.feature-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.6) 0%, rgba(15, 52, 96, 0.6) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.feature-card-modern:hover .feature-overlay {
+  opacity: 1;
+}
+
+.feature-icon {
+  font-size: 4rem;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.feature-content-modern {
+  padding: 2rem;
+}
+
+.feature-title-modern {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.feature-description-modern {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #666666;
+  margin-bottom: 1.5rem;
+}
+
+.feature-link {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #d4af37;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.feature-link:hover {
+  color: #f4d03f;
+  transform: translateX(5px);
+}
+
+.feature-item {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 4px;
+  transition: var(--transition-smooth);
+}
+
+.feature-item:hover {
+  transform: translateY(-10px);
+}
+
+.feature-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
+}
+
+.feature-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.feature-description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #666;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 3rem;
+  background-color: transparent;
+  border: 1px solid var(--color-secondary);
+  color: var(--color-secondary);
+  text-decoration: none;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  transition: var(--transition-smooth);
+  margin-top: 2rem;
+}
+
+.cta-button:hover {
+  background-color: var(--color-secondary);
+  color: white;
+}

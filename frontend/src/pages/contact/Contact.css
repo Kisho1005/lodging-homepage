@@ -1,79 +1,328 @@
-.contact-container {
+/* モダンなコンタクトページスタイル */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap');
+
+:root {
+  --color-primary: #1a1a2e;
+  --color-secondary: #16213e;
+  --color-accent: #0f3460;
+  --color-gold: #d4af37;
+  --color-gold-light: #f4d03f;
+  --color-cream: #f5f5f5;
+  --color-white: #ffffff;
+  --color-text: #333333;
+  --color-text-light: #666666;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-page {
   min-height: 100vh;
+  background: var(--color-cream);
+}
+
+/* ナビゲーション */
+.modern-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding: 1.5rem 5%;
+  transition: var(--transition);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-container {
+  transition: var(--transition);
+}
+
+.logo-image {
+  width: 150px;
+  height: auto;
+  transition: var(--transition);
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-white);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--color-gold-light);
+}
+
+.nav-link.contact-nav {
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+}
+
+/* ヒーローセクション */
+.contact-hero {
+  position: relative;
+  height: 50vh;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  overflow: hidden;
 }
 
-.contact-form-container {
-  background-color: #252a31;
-  padding: 2rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 28rem;
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(26, 26, 46, 0.8) 100%);
+  z-index: 1;
 }
 
-.contact-title {
-  font-size: 1.25rem;
-  color: #ffffff;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
+.hero-content {
+  position: relative;
+  z-index: 2;
   text-align: center;
+  padding-top: 5rem;
+}
+
+.page-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+}
+
+.page-subtitle {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.05em;
+}
+
+/* コンタクトコンテンツ */
+.contact-content {
+  padding: 5rem 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  background: white;
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* 情報セクション */
+.contact-info-section {
+  padding: 1rem;
+}
+
+.info-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.8rem;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+}
+
+.info-item {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--color-cream);
+  border-radius: 12px;
+  transition: var(--transition);
+}
+
+.info-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.info-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.info-item h3 {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.info-value {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 1.2rem;
+  color: var(--color-gold);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.info-note {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+/* フォームセクション */
+.contact-form-section {
+  padding: 1rem;
+}
+
+.modern-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
 }
 
 .form-group {
-  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-label {
-  display: flex;
-  color: #ffffff;
-  font-size: 0.875rem;
-  font-weight: bold;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-primary);
   margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.required {
+  color: #e53e3e;
+  margin-left: 0.2rem;
 }
 
 .form-input,
 .form-textarea {
-  background-color: #252a31;
-  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-  border: 1px solid #e2e8f0;
-  border-radius: 0.25rem;
-  letter-spacing: 1px;
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  color: #ffffff;
-  line-height: 1.25rem;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  padding: 0.875rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--color-text);
+  background: white;
+  transition: var(--transition);
   outline: none;
 }
 
 .form-input:focus,
 .form-textarea:focus {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  border-color: #63b3ed;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
 }
 
-.form-button-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
 }
 
-.form-button {
-  background-color: #4299e1;
-  color: #ffffff;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  outline: none;
+.submit-button {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  padding: 1rem 3rem;
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
 }
 
-.form-button:hover {
-  background-color: #2b6cb0;
+.submit-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
 }
 
-.form-button:focus {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-note {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 968px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .modern-nav {
+    padding: 1rem 5%;
+  }
+
+  .logo-image {
+    width: 100px;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .contact-content {
+    padding: 3rem 5%;
+  }
+
+  .contact-wrapper {
+    padding: 2rem;
+  }
 }

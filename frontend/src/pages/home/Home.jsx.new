@@ -1,0 +1,269 @@
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import './home.css';
+import './sections.css';
+import './buttons.css';
+
+import logoImage from '../../assets/facilities_image/rogp.png';
+import bbqImage from '../../assets/facilities_image/BBQ.jpg';
+import songImage from '../../assets/facilities_image/song.jpg';
+import dartsImage from '../../assets/facilities_image/darts.jpg';
+import woodTexture from '../../assets/facilities_image/wood-texture.jpg';
+
+const Home = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="loading-screen">
+        <motion.img
+          src={logoImage}
+          alt="ロゴ"
+          className="loading-logo"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        />
+        <div className="loader"></div>
+        <p className="loading-text">Welcome</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="home-container">
+      <header className="header">
+        <motion.div 
+          className="logo-container"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <img src={logoImage} alt="ロゴ" className="logo-image" />
+        </motion.div>
+      </header>
+
+      <main className="main-content">
+        <section className="hero-section">
+          <div className="hero-content">
+            <motion.h1 
+              className="hero-title"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+            >
+              みんなの隠れ家
+            </motion.h1>
+            <motion.p 
+              className="hero-subtitle"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.8 }}
+            >
+              海風のあたる貸し切りの民宿で、休日のひとときを
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 1.1 }}
+            >
+              <Link to="/contact" className="cta-button">ご予約・お問い合わせ</Link>
+            </motion.div>
+          </div>
+        </section>
+
+        <section className="section concept-section">
+          <div className="section-inner">
+            <h2 className="section-title">施設のご案内</h2>
+            <div className="feature-grid">
+              <motion.div 
+                className="feature-item"
+                whileHover={{ y: -10 }}
+              >
+                <img src={bbqImage} alt="BBQ設備" className="feature-image" />
+                <h3 className="feature-title">バーベキュー設備</h3>
+                <p className="feature-description">
+                  海を眺めながら、楽しいバーベキューのひとときを
+                </p>
+              </motion.div>
+              <motion.div 
+                className="feature-item"
+                whileHover={{ y: -10 }}
+              >
+                <img src={songImage} alt="カラオケ" className="feature-image" />
+                <h3 className="feature-title">カラオケ完備</h3>
+                <p className="feature-description">
+                  最新の機器で、思い出に残る歌声を響かせましょう
+                </p>
+              </motion.div>
+              <motion.div 
+                className="feature-item"
+                whileHover={{ y: -10 }}
+              >
+                <img src={dartsImage} alt="ダーツ" className="feature-image" />
+                <h3 className="feature-title">ダーツで楽しむ</h3>
+                <p className="feature-description">
+                  本格的なダーツ設備で、スリリングな対戦を
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section news-section">
+          <div className="section-inner">
+            <h2 className="section-title">お知らせ</h2>
+            <motion.div 
+              className="news-container"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div className="news-card">
+                <span className="news-date">2025.08.20</span>
+                <h3 className="news-title">夏の特別プランのご案内</h3>
+                <p className="news-excerpt">
+                  七夕の時期に合わせた特別会席と花火を楽しむ宿泊プランをご用意いたしました。
+                </p>
+                <Link to="/news" className="news-link">詳しく見る</Link>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        <section className="room-status-section">
+          <div className="section-inner">
+            <h2 className="section-title">空室情報</h2>
+            <div className="calendar-wrapper">
+              <div className="room-status-header">
+                <h3 className="month-title">2025年8月</h3>
+                <div className="room-type-selector">
+                  <button className="room-type-btn active">全ての部屋</button>
+                  <button className="room-type-btn">和室</button>
+                  <button className="room-type-btn">洋室</button>
+                </div>
+              </div>
+              <div className="calendar-grid">
+                <div className="calendar-day available">
+                  <span className="date">20</span>
+                  <span className="status">○</span>
+                  <span className="price">\15,000?</span>
+                </div>
+              </div>
+              <div className="status-legend">
+                <span className="legend-item"><span className="circle available"></span>空室あり</span>
+                <span className="legend-item"><span className="circle few"></span>残りわずか</span>
+                <span className="legend-item"><span className="circle unavailable"></span>満室</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="features-section">
+          <div className="section-inner">
+            <h2 className="section-title">館内のご案内</h2>
+            <div className="features-grid">
+              <div className="feature-card">
+                <div className="feature-icon parking"></div>
+                <h3>無料駐車場</h3>
+                <p>8台まで駐車可能</p>
+              </div>
+              <div className="feature-card">
+                <div className="feature-icon wifi"></div>
+                <h3>Wi-Fi完備</h3>
+                <p>全館利用可能</p>
+              </div>
+              <div className="feature-card">
+                <div className="feature-icon bath"></div>
+                <h3>温泉</h3>
+                <p>15:00-23:00</p>
+              </div>
+              <div className="feature-card">
+                <div className="feature-icon meal"></div>
+                <h3>お食事処</h3>
+                <p>朝食 7:00-9:00<br/>夕食 18:00-20:00</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="reviews-section">
+          <div className="section-inner">
+            <h2 className="section-title">お客様の声</h2>
+            <div className="reviews-slider">
+              <div className="review-card">
+                <div className="review-header">
+                  <div className="reviewer-info">
+                    <span className="reviewer-name">K.S様</span>
+                    <span className="stay-date">2025年7月宿泊</span>
+                  </div>
+                  <div className="rating">★★★★★</div>
+                </div>
+                <p className="review-text">
+                  施設が充実していて、特にカラオケとバーベキューを楽しむことができました。
+                  スタッフの方の対応も丁寧で、また利用したいと思います。
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="access-section">
+          <div className="section-inner">
+            <h2 className="section-title">アクセス</h2>
+            <div className="access-content">
+              <div className="access-info">
+                <h3>交通手段</h3>
+                <ul className="access-list">
+                  <li>〇〇駅から車で15分</li>
+                  <li>〇〇ICから車で20分</li>
+                  <li>無料送迎バスあり（要予約）</li>
+                </ul>
+                <div className="address-box">
+                  <h3>所在地</h3>
+                  <p>〒000-0000<br/>千葉県〇〇市〇〇町1-1-1</p>
+                  <button className="map-btn">GoogleMapで見る</button>
+                </div>
+              </div>
+              <div className="map-container">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.9997896433915!2d140.6232421755915!3d35.6770071725887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022e0ed0ee91a3f%3A0x46373b96c9d2332d!2z44CSMjg5LTI1MjQg5Y2D6JGJ55yM5pet5biC56We5a6u5a-677yT77yZ77yX77yS4oiS77yU77yR!5e0!3m2!1sja!2sjp!4v1738385119846!5m2!1sja!2sjp"
+                  allowFullScreen=""
+                  loading="lazy"
+                  title="Google Map"
+                  className="map"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer className="footer">
+          <div className="footer-inner">
+            <p>? 2025 みんなの隠れ家 - All Rights Reserved.</p>
+            <nav>
+              <ul className="footer-links">
+                <li><Link to="/reservation">予約</Link></li>
+                <li><Link to="/contact">お問い合わせ</Link></li>
+                <li><Link to="/faq">よくある質問</Link></li>
+                <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+              </ul>
+            </nav>
+          </div>
+        </footer>
+      </main>
+    </div>
+  );
+};
+
+export default Home;

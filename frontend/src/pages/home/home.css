@@ -1,71 +1,399 @@
-/* クラシックで格調高いデザインのスタイル */
+/* 現代的なデザイン - モダンでエレガント */
 
-/* 全体のフォントと背景色 */
-body {
-  font-family: 'Georgia', serif;
-  background-color: #18191a;
-  color: #e0d8c8;
-  margin: 0;
-  padding: 0;
-  transition: opacity 2s ease-in-out;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap');
+
+:root {
+  --color-primary: #1a1a2e;
+  --color-secondary: #16213e;
+  --color-accent: #0f3460;
+  --color-gold: #d4af37;
+  --color-gold-light: #f4d03f;
+  --color-cream: #f5f5f5;
+  --color-white: #ffffff;
+  --color-text: #333333;
+  --color-text-light: #666666;
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-gold: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.2);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --border-radius: 16px;
 }
 
-.header {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Zen Kaku Gothic New', 'Noto Serif JP', sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-text);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+.home-container {
+  min-height: 100vh;
+  background-color: var(--color-cream);
+}
+
+.main-content {
+  padding-top: 0;
+}
+
+/* モダンナビゲーション */
+.modern-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  transition: var(--transition);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-container {
+  transition: var(--transition);
+}
+
+.logo-image {
+  width: 150px;
+  height: auto;
+  transition: var(--transition);
+  display: block;
+}
+
+.logo-image:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-white);
+  text-decoration: none;
+  letter-spacing: 0.05em;
   position: relative;
-  background-image: url('../../assets/facilities_image/image_3.gif');
-  background-size: cover;
-  background-position: center;
-  height: 500px; /* 適宜調整 */
+  padding: 0.5rem 0;
+  transition: var(--transition);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-gold);
+  transition: var(--transition);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.contact-nav {
+  background: var(--gradient-gold);
+  color: var(--color-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 1rem;
+}
+
+.nav-link.contact-nav::after {
+  display: none;
+}
+
+.nav-link.contact-nav:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* モダンローディング画面 */
+.loading-screen {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  color: var(--color-white);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
 }
 
-/* ヘッダーの上部と下部をフェードアウト */
-
-
-.header-title {
-  font-family: 'Times New Roman', serif;
-  font-size: 50px;
-  font-weight: bold;
-  color: rgba(255, 225, 52, 0.6);
-  text-shadow: 1px 2px 3px #808080;
-  opacity: 0; /* 初期状態では透明 */
-  animation: fadeInText 2s ease-out forwards;
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
-.header-subtitle {
-  font-size: 25px;
-  font-weight: 800;
-  color: #181616;
+.loading-logo {
+  width: 200px;
+  height: auto;
+  filter: brightness(0) invert(1) drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+}
+
+.loading-bar {
+  width: 200px;
+  height: 3px;
+  background: var(--gradient-gold);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+.loading-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  color: var(--color-gold-light);
+  text-transform: uppercase;
+}
+
+/* モダンヒーローセクション */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-accent) 100%);
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../../assets/facilities_image/image_3.gif');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(26, 26, 46, 0.8) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
   text-align: center;
-  margin-top: 190px;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  margin-bottom: 2rem;
+}
+
+.badge-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--color-gold-light);
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+  color: var(--color-white);
+  line-height: 1.2;
+}
+
+.hero-title .highlight {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  display: inline-block;
+}
+
+.hero-subtitle {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  margin-bottom: 3rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), transparent);
+  animation: scrollAnim 2s ease-in-out infinite;
+}
+
+@keyframes scrollAnim {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(10px);
+  }
 }
 
 
-@keyframes fadeInText {
-  0% {
-    transform: translateY(-20px); /* 初期位置：上に隠れている */
-    opacity: 0; /* 初期状態は透明 */
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .modern-nav {
+    padding: 1rem 5%;
   }
-  100% {
-    transform: translateY(0); /* 元の位置に戻す */
-    opacity: 1; /* 最後は完全に表示 */
+
+  .logo-image {
+    width: 100px;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+  }
+
+  .nav-link.contact-nav {
+    padding: 0.6rem 1.2rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cta-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .features-grid-modern {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .section-header {
+    margin-bottom: 3rem;
+  }
+
+  .section-title-modern {
+    font-size: clamp(2rem, 4vw, 3rem);
   }
 }
 
+@media (max-width: 480px) {
+  .features-modern-section {
+    padding: 4rem 5%;
+  }
 
-/* セクション共通 */
+  .hero-badge {
+    padding: 0.4rem 1rem;
+  }
+
+  .badge-text {
+    font-size: 0.75rem;
+  }
+}
+
+/* セクションタイトル */
 .section-title {
   font-size: 28px;
-  font-family: 'Garamond', serif;
+  font-family: 'Noto Serif JP', serif;
   text-align: center;
-  color: #d4af37;
+  color: #1a1a2e;
   margin-bottom: 20px;
-  
   padding-bottom: 10px;
 }
 
@@ -253,7 +581,8 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #1a1a1a;
+  background-color: rgba(26, 26, 26, 0.9);
+  backdrop-filter: blur(8px);
   color: #e0d8c8;
   font-size: 20px;
   position: fixed;
@@ -261,24 +590,66 @@ body {
   top: 0;
   left: 0;
   z-index: 9999;
+  overflow: hidden;
+}
+
+.loading-logo {
+  width: 200px;
+  height: auto;
+  margin-bottom: 30px;
+  filter: invert(1);
+  mix-blend-mode: exclusion;
+  animation: logoEffect 2s infinite alternate;
+}
+
+@keyframes logoEffect {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
 }
 
 /* ローディングアニメーション */
 .loader {
   width: 50px;
   height: 50px;
-  border: 5px solid rgba(255, 255, 255, 0.3);
-  border-top: 5px solid #c8a97e;
+  border: 2px solid rgba(224, 216, 200, 0.3);
+  border-top: 2px solid #e0d8c8;
   border-radius: 50%;
-  animation: spin 1s linear infinite;
+  animation: spin 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   margin-bottom: 20px;
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 
 
 /* ロード中のテキスト */
 .loading-text {
-  font-size: 18px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #e0d8c8;
+  margin-top: 20px;
+  opacity: 0.9;
+  animation: fadeInOut 2s infinite;
   color: #e0d8c8;
   font-weight: bold;
 }
@@ -329,4 +700,610 @@ body {
 
 .img-03 {
   background-image: url('../../assets/facilities_image/4.gif');
+}
+
+/* セクション共通スタイル */
+.section {
+  padding: 4rem 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 空室情報セクション */
+.room-status-section {
+  padding: 4rem 5%;
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.calendar-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.rental-info {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+  border-radius: 12px;
+}
+
+.rental-badge {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+  color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.rental-description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-text-light);
+  margin: 0 0 0.5rem 0;
+}
+
+.booking-period {
+  font-size: 0.95rem;
+  color: var(--color-gold);
+  font-weight: 600;
+  margin: 0.5rem 0 0 0;
+}
+
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  margin: 2rem 0 0.5rem 0;
+}
+
+.calendar-header-day {
+  padding: 0.8rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1a1a2e;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.calendar-header-day.sunday {
+  color: #f44336;
+}
+
+.calendar-header-day.saturday {
+  color: #2196f3;
+}
+
+.calendar-grid-weeks {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  padding: 0.8rem;
+  background: #f5f5f5;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.calendar-day.available {
+  background: #e8f5e9;
+  border: 2px solid #4caf50;
+}
+
+.calendar-day.available:hover {
+  background: #c8e6c9;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.calendar-day.unavailable {
+  background: #ffebee;
+  border: 2px solid #f44336;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.calendar-day.past {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.calendar-day .date {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #1a1a2e;
+}
+
+.calendar-day .status {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #4caf50;
+}
+
+.calendar-day.unavailable .status {
+  color: #f44336;
+}
+
+.calendar-day .price {
+  display: block;
+  font-size: 0.75rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.status-legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.circle.available {
+  background: #4caf50;
+}
+
+.circle.unavailable {
+  background: #f44336;
+}
+
+/* 館内のご案内セクション */
+.features-section {
+  padding: 4rem 5%;
+  text-align: center;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+  border-radius: 50%;
+}
+
+.feature-card h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #1a1a2e;
+}
+
+.feature-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* お客様の声セクション */
+.reviews-section {
+  padding: 4rem 5%;
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.reviews-slider {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.review-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.reviewer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.reviewer-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #1a1a2e;
+}
+
+.stay-date {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.rating {
+  color: #d4af37;
+  font-size: 1.2rem;
+}
+
+.review-text {
+  line-height: 1.8;
+  color: #333;
+}
+
+/* アクセスセクション */
+.access-section {
+  padding: 4rem 5%;
+  text-align: center;
+}
+
+.access-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 2rem auto 0;
+}
+
+.access-info {
+  text-align: left;
+}
+
+.access-info h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1a1a2e;
+}
+
+.access-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.access-list li {
+  padding: 0.5rem 0;
+  color: #666;
+  line-height: 1.8;
+}
+
+.address-box {
+  background: #f5f5f5;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 1.5rem;
+}
+
+.address-box p {
+  margin: 1rem 0;
+  color: #666;
+  line-height: 1.8;
+}
+
+.map-btn {
+  padding: 0.8rem 2rem;
+  background: #d4af37;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  margin-top: 1rem;
+}
+
+.map-btn:hover {
+  background: #f4d03f;
+  transform: translateY(-2px);
+}
+
+.map-container {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.access-text {
+  max-width: 800px;
+  margin: 2rem auto;
+  line-height: 1.8;
+  color: #666;
+}
+
+/* 周辺観光セクション */
+.tourism-section {
+  padding: 4rem 5%;
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.tourism-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tourism-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.tourism-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.tourism-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.tourism-content {
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.tourism-content h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #1a1a2e;
+}
+
+.tourism-content p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.distance {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  background: #e8f5e9;
+  color: #4caf50;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* ニュースセクション */
+.news-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.news-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.news-date {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  background: #d4af37;
+  color: white;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.news-card .news-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1a1a2e;
+}
+
+.news-excerpt {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.news-link {
+  display: inline-block;
+  color: #d4af37;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.news-link:hover {
+  color: #f4d03f;
+  transform: translateX(5px);
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .access-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .room-status-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .calendar-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+}
+
+/* 民宿神宮寺のこだわりセクション */
+.philosophy-section {
+  position: relative;
+  padding: 8rem 5%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.philosophy-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(15, 52, 96, 0.85) 100%);
+  z-index: 1;
+}
+
+.philosophy-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+
+.philosophy-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 600;
+  margin-bottom: 3rem;
+  color: var(--color-gold-light);
+  letter-spacing: 0.1em;
+}
+
+.philosophy-text {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 3rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.philosophy-motto {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--color-gold-light);
+  margin-bottom: 2rem;
+  letter-spacing: 0.1em;
+}
+
+.philosophy-description {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 1.05rem;
+  line-height: 2;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.philosophy-highlight {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(244, 208, 63, 0.2) 100%);
+  border-radius: 12px;
+  border: 2px solid var(--color-gold);
+}
+
+.highlight-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.philosophy-highlight p {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--color-gold-light);
+  margin: 0;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 768px) {
+  .philosophy-section {
+    padding: 5rem 5%;
+    background-attachment: scroll;
+  }
+
+  .philosophy-text {
+    padding: 2rem;
+  }
+
+  .philosophy-description {
+    font-size: 0.95rem;
+  }
 }
